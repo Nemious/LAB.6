@@ -1,3 +1,7 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
 def calculate_weights(n):
     matrix = []
 
@@ -16,7 +20,7 @@ def calculate_weights(n):
                             raise ValueError("Значение не может быть равно нулю или больше 10")
                         break
                     except ValueError as e:
-                        print("Ошибка", e)
+                        messagebox.showerror("Ошибка", str(e))
                 row.append(value)
             else:
                 row.append(1 / matrix[j][i])
@@ -36,21 +40,37 @@ def calculate_weights(n):
 
 
 def main():
-    while True:
-        try:
-            n = int(input("Введите количество критериев: "))
-            if n <= 0:
-                raise ValueError("Количество критериев должнобыть больше 1")
-            break
-        except ValueError as e:
-            print("Ошибка", e)
-    # Расчет весовых коэффициентов
-    weights = calculate_weights(n)
+    root = tk.Tk()
+    root.title("Метод анализа иерархий")
 
-    # Вывод весовых коэффициентов
-    print("Весовые коэффициенты:")
-    for i, weight in enumerate(weights):
-        print(f"Критерий {i + 1}: {weight:.2f}")
+    def calculate():
+        try:
+            n = int(entry.get())
+            if n <= 0:
+                raise ValueError("Количество критериев должно быть больше 1")
+
+            weights = calculate_weights(n)
+
+            result_text.delete(1.0, tk.END)
+            result_text.insert(tk.END, "Весовые коэффициенты:\n")
+            for i, weight in enumerate(weights):
+                result_text.insert(tk.END, f"Критерий {i + 1}: {weight:.2f}\n")
+        except ValueError as e:
+            messagebox.showerror("Ошибка", str(e))
+
+    label = tk.Label(root, text="Введите количество критериев:")
+    label.pack()
+
+    entry = tk.Entry(root)
+    entry.pack()
+
+    button = tk.Button(root, text="Рассчитать", command=calculate)
+    button.pack()
+
+    result_text = tk.Text(root, height=10, width=30)
+    result_text.pack()
+
+    root.mainloop()
 
 
 if __name__ == "__main__":
