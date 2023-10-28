@@ -18,9 +18,13 @@ __Испольнитель:__
 ### Тесты программы
 
 Пример итога работы программы:
+
 ![image](https://github.com/Nemious/LAB.6/blob/main/%D0%A2%D0%B5%D1%81%D1%82%201%20(%D1%82%D0%BE%D0%BC%D0%B0%D1%81).png?raw=true)
 
+
+
 Пример работы с ошибками:
+
 ![image](https://github.com/Nemious/LAB.6/blob/main/%D0%A2%D0%B5%D1%81%D1%82%202%20(%D1%82%D0%BE%D0%BC%D0%B0%D1%81).png?raw=true)
 
 ![image](https://github.com/Nemious/LAB.6/blob/main/%D0%A2%D0%B5%D1%81%D1%82%203(%D1%82%D0%BE%D0%BC%D0%B0%D1%81).png?raw=true)
